@@ -5,7 +5,7 @@ setup(
     author='Brent Tubbs',
     author_email='brent.tubbs@gmail.com',
     version='0.0.1',
-    url='http://github.com/btubbs/wsgi_jwt_session',
+    url='http://github.com/btubbs/wsgi-jwt-session',
     py_modules=['wsgi_jwt_session'],
     description='A Python WSGI middleware that provides  '
                 'sessions via a JSON Web Token-encoded cookie.',
