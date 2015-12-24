@@ -1,5 +1,6 @@
 # wsgi-jwt-session
-A Python WSGI middleware that provides sessions via a JWT-encoded cookie.
+A Python WSGI middleware that provides sessions via a 
+JSON Web Token-encoded cookie.
 
 ## Usage
 

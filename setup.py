@@ -8,7 +8,7 @@ setup(
     url='http://github.com/btubbs/wsgi_jwt_session',
     py_modules=['wsgi_jwt_session'],
     description='A Python WSGI middleware that provides  '
-                'sessions via a JWT-encoded cookie.',
+                'sessions via a JSON Web Token-encoded cookie.',
     zip_safe=False,
     classifiers=[
         'License :: OSI Approved :: BSD License',
