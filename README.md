@@ -85,11 +85,10 @@ avatar URL without needing extra API calls.
 ## In-browser usage
 
 Obviously, a user's browser will not have
-access to your secret key, so it cannot check the cookie's signature.  So your
-client side code should only trust the cookie values if they were returned over
-https.  The [jwt-decode](https://github.com/auth0/jwt-decode) Javascript library
-is designed for this use case.  It ignores the token's signature, and just gives
-you back the payload.  You can use it like this:
+access to your secret key, so it cannot check the cookie's signature.  The
+[jwt-decode](https://github.com/auth0/jwt-decode) Javascript library is designed
+for this use case.  It ignores the token's signature, and just gives you back
+the payload.  You can use it like this:
 
     function getCookie(name) {
       var value = "; " + document.cookie;
@@ -114,20 +113,20 @@ You can also copy/paste JWT cookie values into the debugger at
 There are a few things to keep in mind about the security of sessions managed
 this way:
 
-1. By default, a man in the middle who had access to the HTTP headers in your
-   app's requests and responses could read session values as they were
-   transmitted over the wire. This is not a bug; it's just the way that
-   [HMACs](https://en.wikipedia.org/wiki/Hash-based_message_authentication_code)
-   work.
-2. As long as your secret key stays secret, an end user or man in the middle
+1. As long as your secret key stays secret, an end user or man in the middle
    *cannot* alter the session in any way.  Any attempt to do so will result in
    the token's signature being invalid.  Such sessions are automatically dropped
    by the JWTSessionMiddleware.
-3. Your client-side Javascript code can read the values stored in the session,
-   but not alter them or add new ones.   
-Your JS code can also read the session but not alter it.   (using jwt_decode)
-
- You can prevent this by switching to an alternate [encryption
+2. Your client-side Javascript code can read the values stored in the session,
+   but not alter them or add new ones.
+3. Your client-side Javascript code cannot check the validity of the session
+   cookie's signature.  So you should only trust the content of the cookie if it
+   was returned over https.
+4. By default, a man in the middle who had access to the HTTP headers in your
+   app's requests and responses could read session values as they were
+   transmitted over the wire. This is not a bug; it's just the way that
+   [HMACs](https://en.wikipedia.org/wiki/Hash-based_message_authentication_code)
+   work.  You can prevent this by switching to an alternate [encryption
    algorithm](https://pyjwt.readthedocs.org/en/latest/algorithms.html), but this
-   will prevent
+   will prevent client-side code from accessing the session values.
 
