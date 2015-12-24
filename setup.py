@@ -1,7 +1,7 @@
 from setuptools import setup
 
 setup(
-    name='wsgi_jwt_session',
+    name='wsgi-jwt-session',
     author='Brent Tubbs',
     author_email='brent.tubbs@gmail.com',
     version='0.0.1',

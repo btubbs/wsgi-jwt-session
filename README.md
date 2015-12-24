@@ -68,13 +68,13 @@ request.)
 
 ## Why
 
-There are already lots of Python web frameworks and libraries that provide
-session support.  You may wonder why the world needs another one.
-The motivation for creating this library came when I was creating single page
-apps in which Python served only static files and API endpoints, while the
-entire user interface was built with a front end framework like Angular or
-React.  I wanted to be able to securely set session values like user IDs, but
-also easily share login state with the UI.  The signed cookie implementations in
+With all the existing Python web frameworks and libraries that provide session
+support, you may wonder why the world needs another one.  The motivation for
+creating this library came when I was creating single page apps in which Python
+served only static files and API endpoints, while the entire user interface was
+built with a front end framework like Angular or React.  I wanted to be able to
+securely set session values like user IDs, but also easily share login state
+with the UI.  The signed cookie implementations in
 [Django](https://docs.djangoproject.com/en/1.9/topics/http/sessions/#using-cookie-based-sessions)
 and [Flask/Werkzeug](http://werkzeug.pocoo.org/docs/0.11/contrib/securecookie/)
 provide lightweight cookie-based sessions, but cannot be easily parsed from
