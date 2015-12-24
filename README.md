@@ -84,8 +84,8 @@ avatar URL without needing extra API calls.
 
 ## In-browser usage
 
-Obviously, a user's browser will not have
-access to your secret key, so it cannot check the cookie's signature.  The
+Obviously, a user's browser will not have access to your secret key, so it
+cannot check the cookie's signature, but it *can* decode the payload.  The
 [jwt-decode](https://github.com/auth0/jwt-decode) Javascript library is designed
 for this use case.  It ignores the token's signature, and just gives you back
 the payload.  You can use it like this:
